@@ -2,13 +2,19 @@ plugins {
     id "com.gradle.enterprise" version "3.4.1"
 }
 include ':app'
+
+boolean isCiServer = System.getenv().containsKey("CI")
+
 buildCache {
     local {
-        enabled = true
+        enabled = false
         directory = new File(rootDir, 'build-cache')
         removeUnusedEntriesAfterDays = 30
     }
     remote(HttpBuildCache) {
-        enabled = false
+        url = 'http://34.75.139.200:5071/cache/'
+        allowUntrustedServer = true
+        enabled = true
+        push = !isCiServer
     }
 }
