@@ -7,14 +7,14 @@ boolean isCiServer = System.getenv().containsKey("CI")
 
 buildCache {
     local {
-        enabled = false
+        enabled = true
         directory = new File(rootDir, 'build-cache')
         removeUnusedEntriesAfterDays = 30
     }
     remote(HttpBuildCache) {
         url = 'http://34.75.139.200:5071/cache/'
-        allowUntrustedServer = true
+        allowUntrustedServer = true // Allow untrusted cache server
         enabled = true
-        push = !isCiServer
+        push = isCiServer
     }
 }
