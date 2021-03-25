@@ -11,7 +11,11 @@ buildCache {
         removeUnusedEntriesAfterDays = 30
     }
     remote(HttpBuildCache) {
-        url = 'http://34.75.139.200:5071/cache/'
+        url = 'http://104.197.157.16:5071/cache/'
+        credentials {
+            username = 'build-cache-user'
+            password = 'C0mplic@ted-pa$$worD'
+        }
         allowUntrustedServer = true
         enabled = true
         push = isCiServer
