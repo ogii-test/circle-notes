@@ -12,9 +12,23 @@ buildCache {
     }
     remote(HttpBuildCache) {
         url = 'http://104.197.157.16:5071/cache/'
+
+        /***
+         Create a variable called cacheCredentialsFile,
+         and initialize it to your build-cache-credentials.txt file,
+         in the rootProject folder.
+         ***/
+        def cacheCredentialsFile = file("build-cache-credentials.txt")
+
+        // Initialize a new Properties() object called cacheProperties.
+        def cacheProperties = new Properties()
+
+        // Load your build-cache-credentials.txt file into the cacheProperties object.
+        cacheProperties.load(new FileInputStream(cacheCredentialsFile))
+
         credentials {
-            username = 'build-cache-user'
-            password = 'C0mplic@ted-pa$$worD'
+            username = cacheProperties['cacheUsername']
+            password = cacheProperties['cachePassword']
         }
         allowUntrustedServer = true
         enabled = true
