@@ -11,7 +11,7 @@ jobs:
       - run:
           name: Decode Build Cache Credentials
           command: |
-            echo -e "cacheUsername = $BUILD_CACHE_USERNAME" "\n" "cachePassword = $BUILD_CACHE_PASSWORD" | tee build-cache-credentials.txt
+            echo -e "cacheUsername = $BUILD_CACHE_USERNAME" "\ncachePassword = $BUILD_CACHE_PASSWORD" | tee build-cache-credentials.txt
       - restore_cache:
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
       #      - run:
