@@ -78,3 +78,6 @@ lint/reports/
 
 # Local Build Cache
 build-cache
+
+# Build Cache Credentials
+build-cache-credentials.txt
