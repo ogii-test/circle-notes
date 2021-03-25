@@ -23,7 +23,7 @@ jobs:
       - run:
           name: Decode Build Cache Credentials
           command: |
-            echo $BUILD_CACHE_USERNAME | tee build-cache-credentials.txt
+            echo $BUILD_CACHE_USERNAME $BUILD_CACHE_PASSWORD | tee build-cache-credentials.txt
       - run:
           name: Run Tests
           command: ./gradlew lint testDebugUnitTest
