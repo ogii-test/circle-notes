@@ -21,6 +21,10 @@ jobs:
             - ~/.gradle
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
       - run:
+          name: Decode Build Cache Credentials
+          command: |
+            echo $BUILD_CACHE_USERNAME | tee build-cache-credentials.txt
+      - run:
           name: Run Tests
           command: ./gradlew lint testDebugUnitTest
       - store_artifacts: # for display in Artifacts: https://circleci.com/docs/2.0/artifacts/
