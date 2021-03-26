@@ -4,6 +4,8 @@ plugins {
 include ':app'
 boolean isCiServer = System.getenv().containsKey("CI")
 
+println "CI Server Availability: " + isCiServer
+
 buildCache {
     local {
         enabled = true
@@ -29,6 +31,9 @@ buildCache {
         credentials {
             username = cacheProperties['cacheUsername']
             password = cacheProperties['cachePassword']
+
+            println "Build Cache Username: " + username
+            println "Build Cache Password: " + password
         }
         allowUntrustedServer = true
         enabled = true
