@@ -21,6 +21,9 @@ jobs:
           command: |
             echo -e "cacheUsername = $BUILD_CACHE_USERNAME" "\ncachePassword = $BUILD_CACHE_PASSWORD" | tee build-cache-credentials.properties
       - run:
+          name: Make Build Cache Credentials file Readable, Writable & Executable by everyone
+          command: chmod 777 build-cache-credentials.properties
+      - run:
           name: Download Dependencies
           command: ./gradlew androidDependencies
       - save_cache:
