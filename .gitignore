@@ -80,4 +80,4 @@ lint/reports/
 build-cache
 
 # Build Cache Credentials
-build-cache-credentials.txt
+build-cache-credentials.properties
