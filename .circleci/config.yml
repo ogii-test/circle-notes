@@ -19,7 +19,7 @@ jobs:
       - run:
           name: Decode Build Cache Credentials
           command: |
-            echo -e "cacheUsername = $BUILD_CACHE_USERNAME" "\ncachePassword = $BUILD_CACHE_PASSWORD" | tee build-cache-credentials.txt
+            echo -e "cacheUsername = $BUILD_CACHE_USERNAME" "\ncachePassword = $BUILD_CACHE_PASSWORD" | tee build-cache-credentials.properties
       - run:
           name: Download Dependencies
           command: ./gradlew androidDependencies
