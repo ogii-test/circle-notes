@@ -27,8 +27,11 @@ buildCache {
         cacheProperties.load(new FileInputStream(cacheCredentialsFile))
 
         credentials {
-            username = cacheProperties['cacheUsername']
-            password = cacheProperties['cachePassword']
+            username = 'build-cache-user'
+            password = 'C0mplic@ted-pa$$worD'
+
+//            username = cacheProperties['cacheUsername']
+//            password = cacheProperties['cachePassword']
         }
         allowUntrustedServer = true
         enabled = true
