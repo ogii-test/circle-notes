@@ -23,10 +23,6 @@ jobs:
       - run:
           name: Download Dependencies
           command: ./gradlew androidDependencies
-      - run:
-          name: Decode Build Cache Credentials
-          command: |
-            echo -e "cacheUsername = $BUILD_CACHE_USERNAME" "\ncachePassword = $BUILD_CACHE_PASSWORD" | tee build-cache-credentials.txt
       - save_cache:
           paths:
             - ~/.gradle
